@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Bangers&family=Fredoka+One&family=Press+Start+2P&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +14,8 @@
             text-align: center;
             font-family: 'Bangers', cursive; /* Change to any font below */
             background-image: url('assets/BG.png'); /* Replace with your actual image */
-            background-size:auto; /* Make sure the image covers the entire screen */
-            background-position:top; /* Center the image */
+            background-size: cover; /* Make sure the image covers the entire screen */
+            background-position:center; /* Center the image */
             background-repeat: no-repeat; /* Prevent repeating */
             justify-content: center;
             align-items: center;
@@ -25,10 +29,13 @@
         }
         button {
             padding: 15px;
-            font-size: 18px;
+            font-size: 22px;
+            font-family: 'Bangers', cursive; /* Change to any font below */
             cursor: pointer;
             background-color: rgba(87, 177, 255, 0.466);
             color: aqua;
+            border-radius: 5px;
+            border-color: aquamarine;
         }
 
         #title {
@@ -59,14 +66,16 @@
         // Object with categories and corresponding sound lists
         const categories = {
             "Cat": ["assets/cat1.mp3", "assets/cat2.mp3", "assets/cat3.mp3", "assets/cat4.mp3", "assets/cat5.mp3", "assets/cat6.mp3", "assets/cat7.mp3"],
+            "Dog": ["assets/dog1.mp3", "assets/dog2.mp3", "assets/dog3.mp3", "assets/dog4.mp3", "assets/dog5.mp3", "assets/dog6.mp3"],
             "Fart": ["assets/fart1.mp3", "assets/fart2.mp3", "assets/fart3.mp3", "assets/fart4.mp3", "assets/fart5.mp3", "assets/fart6.mp3", "assets/fart7.mp3"],
             "Ouch": ["assets/ouch1.mp3", "assets/ouch2.mp3", "assets/ouch3.mp3", "assets/ouch4.mp3", "assets/ouch5.mp3", "assets/ouch6.mp3"],
-            "Suspicious": ["assets/sus1.mp3"],
+            "Suss": ["assets/sus1.mp3"],
             "Surprise": ["assets/surprised1.mp3", "assets/surprised2.mp3", "assets/surprised3.mp3", "assets/surprised4.mp3"],
             "Laugh": ["assets/laugh1.mp3"],
             "Dong": ["assets/dong1.mp3"],
-            "Applause": ["assets/applause.mp3"],
-            "Wawawawaaa": ["assets/wawawa.mp3"],
+            "Drums": ["assets/drum1.mp3"],
+            "Clap": ["assets/applause.mp3"],
+            "Fail": ["assets/wawawa.mp3"],
             "Sad": ["assets/sad1.mp3"],
         };
 
