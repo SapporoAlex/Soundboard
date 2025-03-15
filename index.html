@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Bangers&family=Fredoka+One&family=Press+Start+2P&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momo's Sounds</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Bangers', cursive; /* Change to any font below */
+            background-image: url('assets/BG.png'); /* Replace with your actual image */
+            background-size:auto; /* Make sure the image covers the entire screen */
+            background-position:top; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating */
+            justify-content: center;
+            align-items: center;
+        }
+        .soundboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: rgba(87, 177, 255, 0.466);
+            color: aqua;
+        }
+
+        #title {
+            margin-top: 30%;
+            color:aqua;
+            font-size: 70px;
+            
+        }
+
+        #soundboard-box {
+            background-color: rgba(87, 177, 255, 0.466);
+            display: block;
+            padding: 10px;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="title">Wacky Sounds</h1>
+    <div id="soundboard-box">
+        <div class="soundboard">
+            <!-- Buttons will be created dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // Object with categories and corresponding sound lists
+        const categories = {
+            "Cat": ["assets/cat1.mp3", "assets/cat2.mp3", "assets/cat3.mp3", "assets/cat4.mp3", "assets/cat5.mp3", "assets/cat6.mp3", "assets/cat7.mp3"],
+            "Fart": ["assets/fart1.mp3", "assets/fart2.mp3", "assets/fart3.mp3", "assets/fart4.mp3", "assets/fart5.mp3", "assets/fart6.mp3", "assets/fart7.mp3"],
+            "Ouch": ["assets/ouch1.mp3", "assets/ouch2.mp3", "assets/ouch3.mp3", "assets/ouch4.mp3", "assets/ouch5.mp3", "assets/ouch6.mp3"],
+            "Suspicious": ["assets/sus1.mp3"],
+            "Surprise": ["assets/surprised1.mp3", "assets/surprised2.mp3", "assets/surprised3.mp3", "assets/surprised4.mp3"],
+            "Laugh": ["assets/laugh1.mp3"],
+            "Dong": ["assets/dong1.mp3"],
+            "Applause": ["assets/applause.mp3"],
+            "Wawawawaaa": ["assets/wawawa.mp3"],
+            "Sad": ["assets/sad1.mp3"],
+        };
+
+        const soundboard = document.querySelector('.soundboard');
+        const activeSounds = {}; // Stores active audio objects for each category
+
+        // Create a button for each category
+        for (const category in categories) {
+            const button = document.createElement('button');
+            button.textContent = category;
+            button.addEventListener('click', () => playRandomSound(category));
+            soundboard.appendChild(button);
+        }
+
+        function playRandomSound(category) {
+            const sounds = categories[category];
+            const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+
+            // Stop the previous sound if playing
+            if (activeSounds[category]) {
+                activeSounds[category].pause();
+                activeSounds[category].currentTime = 0;
+            }
+
+            // Play new sound
+            const audio = new Audio(randomSound);
+            audio.play();
+            activeSounds[category] = audio;
+        }
+    </script>
+
+</body>
+</html>
